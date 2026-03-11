@@ -4,7 +4,7 @@
 
 ---
 
-# 📌 Project Overview
+# Project Overview
 
 This project implements a **centralized printing management system** using **CUPS (Common Unix Printing System)** deployed on an **Ubuntu virtual machine** running on **Hyper-V**.
 
@@ -31,7 +31,7 @@ Services deployed:
 * Automated Reporting System
 ---
 
-# 🏗 System Architecture
+# System Architecture
 
 <img src="docs/images/Diagram_CUPS_printer_MailServer.png" width="900">
 
@@ -39,7 +39,7 @@ The architecture consists of a centralized print server connected to network pri
 
 ---
 
-# 🖨 Printing System
+# Printing System
 
 ## Print Server
 
@@ -52,7 +52,7 @@ The printing system is managed by **CUPS**, which handles:
 
 ---
 
-# 🔄 Printing Workflow
+# Printing Workflow
 
 1️⃣ User sends a print job from workstation
 
@@ -77,7 +77,7 @@ JetDirect RAW (TCP 9100)
 
 ---
 
-# 📊 Print Monitoring & Reporting
+# Print Monitoring & Reporting
 
 The system collects printing logs and generates **monthly usage reports**.
 
@@ -97,7 +97,7 @@ Reports allow administrators to:
 
 ---
 
-# 🌐 Web Management Interface
+# Web Management Interface
 
 The web interface is hosted using **Apache2**.
 
@@ -116,7 +116,7 @@ HTTP Web Interface
 
 ---
 
-# 📧 Automated Email Reporting
+# Automated Email Reporting
 
 The system automatically generates **monthly printing reports** and sends them to the administrator via email.
 
@@ -130,7 +130,7 @@ Report includes:
 
 ---
 
-# 🛠 Technology Stack
+# Technology Stack
 
 | Layer              | Technology          |
 | ------------------ | ------------------- |
@@ -144,7 +144,7 @@ Report includes:
 
 ---
 
-# 👤 Author
+# Author
 
 **Truong Quang Phuc**
 
