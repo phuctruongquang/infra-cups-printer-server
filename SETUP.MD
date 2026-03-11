@@ -18,13 +18,30 @@ Install **Ubuntu Server 22.04 LTS**.
 
 ---
 
-# 2. Update System
+# 2. Update & Install packet
 
 ```bash
 sudo apt update
-sudo apt upgrade -y
+
+sudo apt install -y \
+apache2 \
+php \
+php-cli \
+cups \
+cups-client \
+logrotate \
+mailutils
 ```
 
+Enable Service
+```bash
+sudo systemctl enable apache2
+sudo systemctl enable cups
+```
+
+
+
+===============================
 ---
 
 # 3. Install CUPS Print Server
