@@ -19,17 +19,6 @@ This architecture improves:
 * Reduce operating costs
 * Use the multifunction printing feature for OS/WINDOWS operating systems.
 
----
-
-# 🏗 System Architecture
-
-<img src="docs/images/Diagram_CUPS_printer_MailServer.png" width="900">
-
-The architecture consists of a centralized print server connected to network printers and client workstations across multiple departments.
-
-
----
-
 ## Virtual Machine
 
 ### Ubuntu_VM_01
@@ -40,6 +29,13 @@ Services deployed:
 * Apache2 Web Server
 * Print Log Parser
 * Automated Reporting System
+---
+
+# 🏗 System Architecture
+
+<img src="docs/images/Diagram_CUPS_printer_MailServer.png" width="900">
+
+The architecture consists of a centralized print server connected to network printers and client workstations across multiple departments.
 
 ---
 
