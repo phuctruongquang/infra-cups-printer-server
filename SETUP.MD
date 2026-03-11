@@ -32,7 +32,12 @@ cups-client \
 logrotate \
 mailutils
 ```
-image 1-2
+Select Internet Site
+<img src="docs/images/1-InternetSite.png" width="900">
+
+Hostname sento email
+<img src="docs/images/2-SystemMail.png" width="900">
+
 
 Enable Service
 ```bash
