@@ -637,26 +637,26 @@ http://IP:631/admin
 
 Add Printer
 
-<img src="docs/images/8-AddPriner" width="900">
+<img src="docs/images/8-AddPriner.png" width="900">
 
-<img src="docs/images/9-AddPrinter" width="900">
+<img src="docs/images/9-AddPrinter.png" width="900">
 
-<img src="docs/images/10-AddPrinter" width="900">
+<img src="docs/images/10-AddPrinter.png" width="900">
 
-<img src="docs/images/11-AddPrinter" width="900">
+<img src="docs/images/11-AddPrinter.png" width="900">
 
-<img src="docs/images/12-AddDriver" width="900">
+<img src="docs/images/12-AddDriver.png" width="900">
 
 Test Page
 
-<img src="docs/images/13-TestPage" width="900">
+<img src="docs/images/13-TestPage.png" width="900">
 
 Check Log
 ```bash
 tail -f /var/log/cups/access_log
 ```
-<img src="docs/images/14-CheckLog" width="900">
+<img src="docs/images/14-CheckLog.png" width="900">
 
-<img src="docs/images/15-View" width="900">
+<img src="docs/images/15-View.png" width="900">
 
 The centralized printing system is now ready for use.
