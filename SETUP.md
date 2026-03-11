@@ -23,6 +23,8 @@ Install **Ubuntu Server 22.04 LTS**.
 ```bash
 sudo apt update
 
+timedatectl set-timezone Asia/Ho_Chi_Minh
+
 sudo apt install -y \
 apache2 \
 php \
