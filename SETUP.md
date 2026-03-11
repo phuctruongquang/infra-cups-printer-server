@@ -8,14 +8,14 @@ This guide describes the steps required to deploy the centralized printing syste
 
 Recommended configuration:
 
-CPU: 2 cores
-RAM: 4 GB
-Disk: 40 GB
-Ubuntu Server 22.04 LTS
+-CPU: 2 cores
+-RAM: 4 GB
+-Disk: 40 GB
+-Ubuntu Server 22.04 LTS
 
 ---
 
-# 2. Update & Install Packet
+# 2. Update & Install Packages
 
 The "mailutils" package is an optional add-on that allows you to configure email sending.
 
