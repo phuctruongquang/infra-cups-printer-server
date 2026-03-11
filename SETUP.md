@@ -1,7 +1,5 @@
 # System Setup Guide
 
-This guide describes the steps required to deploy the centralized printing system using CUPS and Apache.
-
 ---
 
 # 1. Install Ubuntu Server
