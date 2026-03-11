@@ -699,3 +699,11 @@ http://IP/cups-report/
 ```
 
 <img src="docs/images/15-View.png" width="900">
+
+---
+
+# Author
+
+**Truong Quang Phuc**
+
+---
