@@ -8,10 +8,10 @@ This guide describes the steps required to deploy the centralized printing syste
 
 Recommended configuration:
 
--CPU: 2 cores
--RAM: 4 GB
--Disk: 40 GB
--Ubuntu Server 22.04 LTS
+CPU: 2 cores
+RAM: 4 GB
+Disk: 40 GB
+Ubuntu Server 22.04 LTS
 
 ---
 
@@ -699,6 +699,3 @@ http://IP/cups-report/
 ```
 
 <img src="docs/images/15-View.png" width="900">
-
-
-The centralized printing system is now ready for use.
