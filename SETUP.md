@@ -11,8 +11,7 @@ Recommended configuration:
 CPU: 2 cores
 RAM: 4 GB
 Disk: 40 GB
-
-Install **Ubuntu Server 22.04 LTS**.
+Ubuntu Server 22.04 LTS
 
 ---
 
@@ -111,17 +110,18 @@ MaxClients 100
 MaxJobs 0
 ```
 
-Restart service:
+Restart Service:
 ```bash
 sudo systemctl restart cups
 ```
 
-Add user to Lpadmin:
+Add User to Lpadmin:
 ```bash
 sudo usermod -aG lpadmin your_user
 ```
 
 Open Port:
+
 80 (Web Dashboard)
 631 (CUPS)
 
@@ -141,20 +141,20 @@ sudo nano /etc/logrotate.d/cups-daemon
 <img src="docs/images/5-EditLog.png" width="900">
 
 # 5. Create Dashboard Directory
-Create Dashboard managemnet:
+Create Dashboard Management:
 
 ```bash
 mkdir -p /var/www/html/cups-report
 cd /var/www/html/cups-report
 ```
 
-Create file:
+Create File:
 
 ```bash
 touch parser.php index.php cache.json
 ```
 
-Grand access file/folder:
+Grand Access File/Folder:
 
 ```bash
 sudo chown -R www-data:www-data /var/www/html/cups-report
@@ -162,14 +162,13 @@ sudo chmod -R 755 /var/www/html/cups-report
 sudo chmod 664 /var/www/html/cups-report/cache.json
 ```
 
-Grand user read:
+Grand User Read File:
 
 ```bash
 sudo usermod -aG adm www-data
 ```
 
-Insert code to parser.php:
-
+Insert Code To parser:
 ```bash
 nano parser.php
 ```
@@ -231,7 +230,7 @@ file_put_contents($cache,json_encode($data,JSON_PRETTY_PRINT));
 ?>
 ```
 
-Insert code to index.php:
+Insert code to index:
 
 ```bash
 nano index.php
@@ -650,7 +649,7 @@ Insert:
 
 # 7. Add Printer
 
-Access WEB admin:
+Access Web Admin:
 
 ```bash
 http://IP:631/admin
@@ -694,7 +693,7 @@ tail -f /var/log/cups/access_log
 
 <img src="docs/images/14-CheckLog.png" width="900">
 
-Access web report check:
+Access Web Report Check:
 ```bash
 http://IP/cups-report/
 ```
