@@ -6,8 +6,6 @@ This guide describes the steps required to deploy the centralized printing syste
 
 # 1. Install Ubuntu Server
 
-Create a virtual machine on Hyper-V.
-
 Recommended configuration:
 
 CPU: 2 cores
@@ -18,14 +16,16 @@ Install **Ubuntu Server 22.04 LTS**.
 
 ---
 
-# 2. Update & Install packet
+# 2. Update & Install Packet
+
+The "mailutils" package is an optional add-on that allows you to configure email sending.
 
 ```bash
-sudo apt update
+apt update
 
 timedatectl set-timezone Asia/Ho_Chi_Minh
 
-sudo apt install -y \
+apt install -y \
 apache2 \
 php \
 php-cli \
@@ -34,14 +34,18 @@ cups-client \
 logrotate \
 mailutils
 ```
-Select Internet Site
+
+Next:
+
 <img src="docs/images/1-InternetSite.png" width="900">
 
-Hostname sento email
+Hostname Server:
+
 <img src="docs/images/2-SystemMail.png" width="900">
 
 
-Enable Service
+Enable Service Apache & Cups:
+
 ```bash
 sudo systemctl enable apache2
 sudo systemctl enable cups
@@ -57,7 +61,7 @@ nano /etc/cups/cupsd.conf
 
 <img src="docs/images/4-EditCUPS.png" width="900">
 
-Code
+Code:
 ```bash
 LogLevel warn
 Port 631
@@ -111,14 +115,15 @@ Restart service:
 ```bash
 sudo systemctl restart cups
 ```
-Add user to Lpadmin
+
+Add user to Lpadmin:
 ```bash
 sudo usermod -aG lpadmin your_user
 ```
 
-Open port 
-80   (Web Dashboard)
-631  (CUPS)
+Open Port:
+80 (Web Dashboard)
+631 (CUPS)
 
 ```bash
 ufw allow 80
@@ -128,6 +133,7 @@ ufw allow 631
 # 4. Log Rotation Configuration
 
 Edit time save log rotate 7 change to 60
+
 ```bash
 sudo nano /etc/logrotate.d/cups-daemon
 ```
@@ -135,34 +141,40 @@ sudo nano /etc/logrotate.d/cups-daemon
 <img src="docs/images/5-EditLog.png" width="900">
 
 # 5. Create Dashboard Directory
-Create Dashboard managemnet
+Create Dashboard managemnet:
+
 ```bash
 mkdir -p /var/www/html/cups-report
 cd /var/www/html/cups-report
 ```
 
-Create file
+Create file:
+
 ```bash
 touch parser.php index.php cache.json
 ```
 
-Grand access file/folder
+Grand access file/folder:
+
 ```bash
 sudo chown -R www-data:www-data /var/www/html/cups-report
 sudo chmod -R 755 /var/www/html/cups-report
 sudo chmod 664 /var/www/html/cups-report/cache.json
 ```
 
-phân quyền user đọc log
+Grand user read:
+
 ```bash
 sudo usermod -aG adm www-data
 ```
+
+Insert code to parser.php:
 
 ```bash
 nano parser.php
 ```
 
-Code
+Code:
 ```bash
 <?php
 
@@ -219,7 +231,13 @@ file_put_contents($cache,json_encode($data,JSON_PRETTY_PRINT));
 ?>
 ```
 
-Edit index.php
+Insert code to index.php:
+
+```bash
+nano index.php
+```
+
+Code:
 ```bash
 <?php
 
@@ -622,7 +640,8 @@ data:<?php echo json_encode(array_values($days));?>
 ```bash
 crontab -e
 ```
-edit
+
+Insert:
 ```bash
 * * * * * php /var/www/html/cups-report/parser.php
 ```
@@ -630,35 +649,57 @@ edit
 <img src="docs/images/6-EditCrontab.png" width="900">
 
 # 7. Add Printer
-Access WEB admin add printer
+
+Access WEB admin:
 
 ```bash
 http://IP:631/admin
 ```
+
+Login User/Password:
+
 <img src="docs/images/7-LoginWeb.png" width="900">
 
-Add Printer
+Next:
 
 <img src="docs/images/8-AddPriner.png" width="900">
 
+Select Driver Printer:
+
 <img src="docs/images/9-AddPrinter.png" width="900">
+
+Connection:
+
+```bash
+socket://IP-Printer
+```
 
 <img src="docs/images/10-AddPrinter.png" width="900">
 
+Insert Informations:
 <img src="docs/images/11-AddPrinter.png" width="900">
+
+Select Driver Fit:
 
 <img src="docs/images/12-AddDriver.png" width="900">
 
-Test Page
+Test Page:
 
 <img src="docs/images/13-TestPage.png" width="900">
 
-Check Log
+Check Log:
 ```bash
 tail -f /var/log/cups/access_log
 ```
+
 <img src="docs/images/14-CheckLog.png" width="900">
 
+Access web report check:
+```bash
+http://IP/cups-report/
+```
+
 <img src="docs/images/15-View.png" width="900">
+
 
 The centralized printing system is now ready for use.
