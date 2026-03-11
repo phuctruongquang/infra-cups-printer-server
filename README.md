@@ -16,6 +16,8 @@ This architecture improves:
 * Resource control
 * Usage monitoring
 * Operational efficiency
+* Reduce operating costs
+* Use the multifunction printing feature for OS/WINDOWS operating systems.
 
 ---
 
@@ -61,15 +63,6 @@ The printing system is managed by **CUPS**, which handles:
 * Job scheduling
 * Print job logging
 * Client connections
-
----
-
-## Network Printers
-
-| Printer    | Protocol      | Port     |
-| ---------- | ------------- | -------- |
-| Printer-01 | JetDirect RAW | TCP 9100 |
-| Printer-02 | JetDirect RAW | TCP 9100 |
 
 ---
 
@@ -164,21 +157,11 @@ The system automatically generates **monthly printing reports** and sends them t
 
 Report includes:
 
+* Export file CSV & PDF
 * Total print jobs
 * Printer usage
 * Department usage
 * Activity statistics
-
----
-
-# 🔐 Security Considerations
-
-Security practices implemented:
-
-* Controlled access to print server
-* Printer access limited to internal network
-* Role-based administrator monitoring
-* Log-based activity tracking
 
 ---
 
@@ -235,6 +218,5 @@ Possible improvements for the system:
 # 👤 Author
 
 **Truong Quang Phuc**
-System Engineer | DevOps
 
 ---
