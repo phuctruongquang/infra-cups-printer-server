@@ -31,7 +31,7 @@ Services deployed:
 
 # 2. System Architecture
 
-<img src="docs/images/Diagram_CUPS_printer_MailServer.png" width="900">
+<img src="docs/images/Diagram_CUPS_printer.png" width="900">
 
 The architecture consists of a centralized print server connected to network printers and client workstations across multiple departments.
 
