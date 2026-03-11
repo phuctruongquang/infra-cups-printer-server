@@ -27,16 +27,6 @@ This architecture improves:
 
 The architecture consists of a centralized print server connected to network printers and client workstations across multiple departments.
 
----
-
-# 🖥 Infrastructure
-
-## Host Environment
-
-| Component      | Technology     |
-| -------------- | -------------- |
-| Server         | Windows Server |
-| Virtualization | Hyper-V        |
 
 ---
 
