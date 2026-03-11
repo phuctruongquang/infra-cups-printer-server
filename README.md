@@ -179,29 +179,6 @@ Report includes:
 
 ---
 
-# 📂 Project Structure
-
-```
-cups-print-server/
-│
-├── README.md
-│
-├── docs
-│   └── images
-│       └── print-system-architecture.png
-│
-├── scripts
-│   └── log-parser
-│
-├── web
-│   └── dashboard
-│
-└── reports
-    └── monthly-reports
-```
-
----
-
 # 🚀 Future Improvements
 
 Possible improvements for the system:
