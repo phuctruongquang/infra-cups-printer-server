@@ -111,57 +111,61 @@ Restart service:
 ```bash
 sudo systemctl restart cups
 ```
+Add user to Lpadmin
+```bash
+sudo usermod -aG lpadmin your_user
+```
 
 Access web page:
 ```bash
 http://IP:631
 ```
+imgae 5
+=================================================
 
 
+# 4. Log Rotation Configuration
+
+Edit time save log rotate 7 change to 60
+```bash
+sudo nano /etc/logrotate.d/cups-daemon
+```
+Image 6
 
 
-Check service status:
+======================
+
+# 5. Create Dashboard Directory
+Create Dashboard managemnet
+```bash
+mkdir -p /var/www/html/cups-report
+cd /var/www/html/cups-report
+```
+
+Create file
+```bash
+touch parser.php index.php cache.json monthly_report.php
+```
 
 ```bash
-sudo systemctl status cups
 ```
-
----
-
-# 4. Configure CUPS
-
-Edit configuration file:
 
 ```bash
-sudo nano /etc/cups/cupsd.conf
 ```
-
-Allow network access:
-
-```
-Listen 0.0.0.0:631
-Browsing On
-```
-
-Restart CUPS:
 
 ```bash
-sudo systemctl restart cups
 ```
 
----
-
-# 5. Access Web Interface
-
-Open browser:
-
-```
-http://SERVER_IP:631
+```bash
 ```
 
-Login using system administrator credentials.
+```bash
+```
 
----
+```bash
+```
+
+
 
 # 6. Add Network Printers
 
