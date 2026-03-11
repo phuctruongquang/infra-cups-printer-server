@@ -1,5 +1,4 @@
 # Centralized Printing Management System
-![System Architecture](docs/images/Diagram_CUPS_printer.png)
 
 ---
 
