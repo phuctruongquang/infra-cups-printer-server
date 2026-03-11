@@ -32,6 +32,7 @@ cups-client \
 logrotate \
 mailutils
 ```
+image 1-2
 
 Enable Service
 ```bash
@@ -44,18 +45,80 @@ sudo systemctl enable cups
 ===============================
 ---
 
-# 3. Install CUPS Print Server
+# 3. Config CUPS
 
 ```bash
-sudo apt install cups -y
+nano /etc/cups/cupsd.conf
 ```
 
-Enable service:
+Change Listen:
+Image 3
+
+Config web admin:
+
+image 4
 
 ```bash
-sudo systemctl enable cups
-sudo systemctl start cups
+LogLevel warn
+Port 631
+Listen /run/cups/cups.sock
+Browsing Off
+BrowseLocalProtocols dnssd
+DefaultAuthType Basic
+DefaultEncryption Never
+WebInterface Yes
+<Location />
+  Allow all
+</Location>
+<Location /admin>
+  AuthType Basic
+  Require user @SYSTEM
+  Order allow,deny
+  Allow all
+</Location>
+<Location /admin/conf>
+  AuthType Basic
+  Require user @SYSTEM
+  Order allow,deny
+  Allow all
+</Location>
+<Policy default>
+  # Job-related operations must be done by the owner or an administrator...
+  <Limit Send-Document Send-URI Hold-Job Release-Job Restart-Job Purge-Jobs Set-Job-Attributes Create-Job-Subscription Renew-Subscription Cancel-Subscription Get-Notifications Reprocess-Job Cancel-C>
+    Require user @OWNER @SYSTEM
+    Order deny,allow
+  </Limit>
+  # All administration operations require an administrator to authenticate...
+  <Limit Pause-Printer Resume-Printer Set-Printer-Attributes Enable-Printer Disable-Printer Pause-Printer-After-Current-Job Hold-New-Jobs Release-Held-New-Jobs Deactivate-Printer Activate-Printer Re>
+    AuthType Default
+    Require user @SYSTEM
+    Order deny,allow
+</Limit>
+  # Only the owner or an administrator can cancel a job...
+  <Limit Cancel-Job>
+    Order deny,allow
+    Require user @OWNER @SYSTEM
+  </Limit>
+  <Limit All>
+  Order deny,allow
+  </Limit>
+</Policy>
+MaxClients 100
+MaxJobs 0
 ```
+
+Restart service:
+```bash
+sudo systemctl restart cups
+```
+
+Access web page:
+```bash
+http://IP:631
+```
+
+
+
 
 Check service status:
 
