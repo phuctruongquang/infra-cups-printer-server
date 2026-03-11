@@ -66,27 +66,6 @@ The printing system is managed by **CUPS**, which handles:
 
 ---
 
-# 👥 Client Access
-
-Multiple departments access the centralized print server.
-
-Departments:
-
-* IT
-* Marketing
-* HR
-
-Supported printing protocols:
-
-| Protocol                         | Port |
-| -------------------------------- | ---- |
-| IPP (Internet Printing Protocol) | 631  |
-| SMB Printing                     | 445  |
-
-Users send print jobs from their workstations to the CUPS server.
-
----
-
 # 🔄 Printing Workflow
 
 1️⃣ User sends a print job from workstation
@@ -176,19 +155,6 @@ Report includes:
 | Protocols          | IPP, SMB, JetDirect |
 | Reporting          | Custom Log Parser   |
 | Email Notification | Mail System         |
-
----
-
-# 🚀 Future Improvements
-
-Possible improvements for the system:
-
-* Printer quota management
-* Department usage limits
-* Grafana print monitoring dashboard
-* Integration with LDAP / Active Directory
-* High availability print servers
-* Real-time monitoring
 
 ---
 
