@@ -17,7 +17,7 @@ Recommended configuration:
 
 # 2. Update & Install Packages
 
-The "mailutils" package is an optional add-on that allows you to configure email sending.
+* The "mailutils" package is an optional add-on that allows you to configure email sending.
 
 ```bash
 apt update
@@ -34,16 +34,16 @@ logrotate \
 mailutils
 ```
 
-Next:
+* Next:
 
 <img src="docs/images/1-InternetSite.png" width="900">
 
-Hostname Server:
+* Hostname Server:
 
 <img src="docs/images/2-SystemMail.png" width="900">
 
 
-Enable Service Apache & Cups:
+* Enable Service Apache & Cups:
 
 ```bash
 sudo systemctl enable apache2
@@ -110,20 +110,20 @@ MaxClients 100
 MaxJobs 0
 ```
 
-Restart Service:
+* Restart Service:
 ```bash
 sudo systemctl restart cups
 ```
 
-Add User to Lpadmin:
+* Add User to Lpadmin:
 ```bash
 sudo usermod -aG lpadmin your_user
 ```
 
-Open Port:
+* Open Port:
 
-80 (Web Dashboard)
-631 (CUPS)
+** 80 (Web Dashboard)
+** 631 (CUPS)
 
 ```bash
 ufw allow 80
@@ -132,7 +132,7 @@ ufw allow 631
 
 # 4. Log Rotation Configuration
 
-Edit time save log rotate 7 change to 60
+* Edit time save log rotate 7 change to 60
 
 ```bash
 sudo nano /etc/logrotate.d/cups-daemon
@@ -141,20 +141,20 @@ sudo nano /etc/logrotate.d/cups-daemon
 <img src="docs/images/5-EditLog.png" width="900">
 
 # 5. Create Dashboard Directory
-Create Dashboard Management:
+* Create Dashboard Management:
 
 ```bash
 mkdir -p /var/www/html/cups-report
 cd /var/www/html/cups-report
 ```
 
-Create File:
+* Create File:
 
 ```bash
 touch parser.php index.php cache.json
 ```
 
-Grand Access File/Folder:
+* Grand Access File/Folder:
 
 ```bash
 sudo chown -R www-data:www-data /var/www/html/cups-report
@@ -162,18 +162,18 @@ sudo chmod -R 755 /var/www/html/cups-report
 sudo chmod 664 /var/www/html/cups-report/cache.json
 ```
 
-Grand User Read File:
+* Grand User Read File:
 
 ```bash
 sudo usermod -aG adm www-data
 ```
 
-Insert Code To parser:
+* Insert Code To parser:
 ```bash
 nano parser.php
 ```
 
-Code:
+* Code:
 ```bash
 <?php
 
@@ -230,13 +230,13 @@ file_put_contents($cache,json_encode($data,JSON_PRETTY_PRINT));
 ?>
 ```
 
-Insert code to index:
+* Insert code to index:
 
 ```bash
 nano index.php
 ```
 
-Code:
+* Code:
 ```bash
 <?php
 
@@ -640,7 +640,7 @@ data:<?php echo json_encode(array_values($days));?>
 crontab -e
 ```
 
-Insert:
+* Insert:
 ```bash
 * * * * * php /var/www/html/cups-report/parser.php
 ```
@@ -649,25 +649,25 @@ Insert:
 
 # 7. Add Printer
 
-Access Web Admin:
+* Access Web Admin:
 
 ```bash
 http://IP:631/admin
 ```
 
-Login User/Password:
+* Login User/Password:
 
 <img src="docs/images/7-LoginWeb.png" width="900">
 
-Next:
+* Next:
 
 <img src="docs/images/8-AddPriner.png" width="900">
 
-Select Driver Printer:
+* Select Driver Printer:
 
 <img src="docs/images/9-AddPrinter.png" width="900">
 
-Connection:
+* Connection:
 
 ```bash
 socket://IP-Printer
@@ -675,25 +675,25 @@ socket://IP-Printer
 
 <img src="docs/images/10-AddPrinter.png" width="900">
 
-Insert Informations:
+* Insert Informations:
 <img src="docs/images/11-AddPrinter.png" width="900">
 
-Select Driver Fit:
+* Select Driver Fit:
 
 <img src="docs/images/12-AddDriver.png" width="900">
 
-Test Page:
+* Test Page:
 
 <img src="docs/images/13-TestPage.png" width="900">
 
-Check Log:
+* Check Log:
 ```bash
 tail -f /var/log/cups/access_log
 ```
 
 <img src="docs/images/14-CheckLog.png" width="900">
 
-Access Web Report Check:
+* Access Web Report Check:
 ```bash
 http://IP/cups-report/
 ```
