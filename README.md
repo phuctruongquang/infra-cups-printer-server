@@ -1,6 +1,6 @@
 # Centralized Printing Management System
 
-### CUPS Print Server with Web Reporting
+CUPS Print Server with Web Reporting
 
 ---
 
