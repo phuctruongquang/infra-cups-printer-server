@@ -41,7 +41,6 @@ sudo systemctl enable cups
 ```
 
 
-
 ===============================
 ---
 
@@ -155,12 +154,26 @@ cd /var/www/html/cups-report
 Create file
 ```bash
 touch parser.php index.php cache.json
-
 ```
-------------
+
+Grand access file/folder
+```bash
+sudo chown -R www-data:www-data /var/www/html/cups-report
+sudo chmod -R 755 /var/www/html/cups-report
+sudo chmod 664 /var/www/html/cups-report/cache.json
+```
+
+
+phân quyền user đọc log
+```bash
+sudo usermod -aG adm www-data
+```
+
 ```bash
 nano parser.php
 ```
+
+
 -------------
 Edit parser
 ```bash
@@ -633,8 +646,15 @@ Access WEB admin add printer
 ```bash
 http://IP:631/
 ```
+add printer
 
+check log 
 
+Image 16
+```bash
+tail -f /var/log/cups/access_log
+```
 
+Image 17
 
 The centralized printing system is now ready for use.
