@@ -1,7 +1,5 @@
 # Centralized Printing Management System
 
-CUPS Print Server with Web Reporting
-
 ---
 
 # 1. Project Overview
