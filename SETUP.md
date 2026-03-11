@@ -122,8 +122,8 @@ sudo usermod -aG lpadmin your_user
 
 * Open Port:
 
-** 80 (Web Dashboard)
-** 631 (CUPS)
+80 (Web Dashboard)
+631 (CUPS)
 
 ```bash
 ufw allow 80
