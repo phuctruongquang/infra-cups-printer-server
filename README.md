@@ -54,26 +54,26 @@ The printing system is managed by **CUPS**, which handles:
 
 # Printing Workflow
 
-1️⃣ User sends a print job from workstation
+1. User sends a print job from workstation
 
-2️⃣ Job is transmitted to the **CUPS Print Server**
+2. Job is transmitted to the **CUPS Print Server**
 
 Protocols used:
 
 * IPP
 * SMB
 
-3️⃣ CUPS processes the job and places it in the print queue
+3. CUPS processes the job and places it in the print queue
 
-4️⃣ The server forwards the job to the printer via:
+4. The server forwards the job to the printer via:
 
 ```
 JetDirect RAW (TCP 9100)
 ```
 
-5️⃣ Printer executes the job
+5. Printer executes the job
 
-6️⃣ Print logs are recorded for reporting and monitoring
+6. Print logs are recorded for reporting and monitoring
 
 ---
 
