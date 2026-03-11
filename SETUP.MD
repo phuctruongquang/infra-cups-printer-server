@@ -45,8 +45,6 @@ sudo systemctl enable apache2
 sudo systemctl enable cups
 ```
 
-
-===============================
 ---
 
 # 3. Config CUPS
@@ -55,13 +53,9 @@ sudo systemctl enable cups
 nano /etc/cups/cupsd.conf
 ```
 
-Change Listen:
-Image 3
+<img src="docs/images/4-EditCUPS.png" width="900">
 
-Config web admin:
-
-image 4
-
+Code
 ```bash
 LogLevel warn
 Port 631
