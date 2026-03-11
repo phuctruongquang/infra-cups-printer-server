@@ -123,25 +123,14 @@ ufw allow 80
 ufw allow 631
 ```
 
-
-Access web page:
-```bash
-http://IP:631
-```
-imgae 5
-=================================================
-
-
 # 4. Log Rotation Configuration
 
 Edit time save log rotate 7 change to 60
 ```bash
 sudo nano /etc/logrotate.d/cups-daemon
 ```
-Image 6
 
-
-======================
+<img src="docs/images/5-EditLog.png" width="900">
 
 # 5. Create Dashboard Directory
 Create Dashboard managemnet
@@ -162,7 +151,6 @@ sudo chmod -R 755 /var/www/html/cups-report
 sudo chmod 664 /var/www/html/cups-report/cache.json
 ```
 
-
 phân quyền user đọc log
 ```bash
 sudo usermod -aG adm www-data
@@ -172,9 +160,7 @@ sudo usermod -aG adm www-data
 nano parser.php
 ```
 
-
--------------
-Edit parser
+Code
 ```bash
 <?php
 
@@ -196,7 +182,7 @@ $lines=file($log);
 
 foreach($lines as $line){
 
-if(!preg_match('/^(.*?) (.*?) (\d+) \[(.*?)\] total (\d+) - ([0-9\.]+) (.*?) - -$/',$line,$m))
+if(!preg_match('/^(.*?) (.*?) (\d+) \[(.*?)\] total (\d+) - ([^ ]+) (.*?) - -$/',$line,$m))
 continue;
 
 $printer=$m[1];
@@ -336,7 +322,7 @@ exit;
 
 <head>
 
-<title>Pharmacity Print Dashboard</title>
+<title>Print Dashboard</title>
 
 <meta http-equiv="refresh" content="30">
 
@@ -418,7 +404,7 @@ color:white;
 
 <body>
 
-<h1>Pharmacity Print Dashboard</h1>
+<h1>Print Dashboard</h1>
 
 <div class="controls">
 
@@ -634,26 +620,43 @@ data:<?php echo json_encode(array_values($days));?>
 ```bash
 crontab -e
 ```
-Parse Logs (every minute)
+edit
 ```bash
 * * * * * php /var/www/html/cups-report/parser.php
 ```
-image 7
 
+<img src="docs/images/6-EditCrontab.png" width="900">
 
+# 7. Add Printer
 Access WEB admin add printer
+
 ```bash
-http://IP:631/
+http://IP:631/admin
 ```
-add printer
+<img src="docs/images/7-LoginWeb.png" width="900">
 
-check log 
+Add Printer
 
-Image 16
+<img src="docs/images/8-AddPriner" width="900">
+
+<img src="docs/images/9-AddPrinter" width="900">
+
+<img src="docs/images/10-AddPrinter" width="900">
+
+<img src="docs/images/11-AddPrinter" width="900">
+
+<img src="docs/images/12-AddDriver" width="900">
+
+Test Page
+
+<img src="docs/images/13-TestPage" width="900">
+
+Check Log
 ```bash
 tail -f /var/log/cups/access_log
 ```
+<img src="docs/images/14-CheckLog" width="900">
 
-Image 17
+<img src="docs/images/15-View" width="900">
 
 The centralized printing system is now ready for use.
