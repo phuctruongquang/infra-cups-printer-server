@@ -1,4 +1,12 @@
 # Centralized Printing Management System
+#### Appendix 1: Project Overview
+#### Appendix 2: System Architecture
+#### Appendix 3: Printing System
+#### Appendix 4: Printing Workflow
+#### Appendix 5: Printer executes the job
+#### Appendix 6:  Web Management Interface
+#### Appendix 7:  Automated Email Reporting
+#### Appendix 8:  Technology Stack
 
 ---
 
@@ -19,7 +27,7 @@ This architecture improves:
 
 ## Virtual Machine
 
-### Ubuntu_VM_01
+#### Ubuntu_VM_01
 
 Services deployed:
 
@@ -27,13 +35,14 @@ Services deployed:
 * Apache2 Web Server
 * Print Log Parser
 * Automated Reporting System
+
 ---
 
 # 2. System Architecture
 
-<img src="docs/images/Diagram_CUPS_printer.png" width="900">
-
 The architecture consists of a centralized print server connected to network printers and client workstations across multiple departments.
+
+<img src="docs/images/Diagram_CUPS_printer.png" width="900">
 
 ---
 
