@@ -919,10 +919,23 @@ echo "I don't sent email. Detail: {$mail->ErrorInfo}\n";
 
 }
 ```
+
 * Test sent Email
 
 ```bash
 php monthly_report
+```
+
+* Config cron
+
+```bash
+crontab -e
+```
+
+* Insert: Crone sent an email at 8:00 AM on the 1st of the month.
+
+```bash
+0 8 1 * * php /var/www/html/cups-report/monthly_report.php
 ```
 
 # Author
