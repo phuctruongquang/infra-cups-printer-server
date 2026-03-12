@@ -270,7 +270,7 @@ strtotime($a['date']." ".$a['time']);
 });
 
 # --------------------
-# PAGINATION
+# PAGINATION DETAILS
 # --------------------
 
 $perPage=10;
@@ -314,6 +314,26 @@ arsort($users);
 arsort($printers);
 ksort($hours);
 ksort($days);
+
+# --------------------
+# TOP USERS PAGINATION
+# --------------------
+
+$userPerPage=10;
+
+$userPage=isset($_GET['user_page'])?(int)$_GET['user_page']:1;
+
+if($userPage<1)$userPage=1;
+
+$totalUsers=count($users);
+
+$userStart=($userPage-1)*$userPerPage;
+
+$usersPage=array_slice($users,$userStart,$userPerPage,true);
+
+$totalUserPages=ceil($totalUsers/$userPerPage);
+
+# --------------------
 
 if(isset($_GET['export'])){
 
@@ -518,7 +538,7 @@ echo "<a href='?month=$month&search=$search&page=$next'>Next</a>";
 
 <?php
 
-foreach($users as $u=>$c){
+foreach($usersPage as $u=>$c){
 
 echo "<tr><td>$u</td><td>$c</td></tr>";
 
@@ -527,6 +547,39 @@ echo "<tr><td>$u</td><td>$c</td></tr>";
 ?>
 
 </table>
+
+<div class="pagination">
+
+<?php
+
+if($userPage>1){
+
+$prev=$userPage-1;
+
+echo "<a href='?month=$month&search=$search&page=$page&user_page=$prev'>Prev</a>";
+
+}
+
+for($i=1;$i<=$totalUserPages;$i++){
+
+$class=$i==$userPage?"active":"";
+
+echo "<a class='$class'
+href='?month=$month&search=$search&page=$page&user_page=$i'>$i</a>";
+
+}
+
+if($userPage<$totalUserPages){
+
+$next=$userPage+1;
+
+echo "<a href='?month=$month&search=$search&page=$page&user_page=$next'>Next</a>";
+
+}
+
+?>
+
+</div>
 
 <div class="chart">
 <canvas id="userChart"></canvas>
@@ -623,9 +676,7 @@ label:'Pages',
 data:<?php echo json_encode(array_values($days));?>
 }]
 }
-
 });
-
 </script>
 
 </body>
@@ -730,8 +781,8 @@ ls -l /var/www/html/cups-report
 
 ```bash
 cd /var/www/html/cups-report/
-touch monthly_report.php
-nano monthly_report.php
+touch monthly_mail.php
+nano monthly_mail.php
 ```
 * Insert Code:
 
@@ -923,7 +974,7 @@ echo "I don't sent email. Detail: {$mail->ErrorInfo}\n";
 * Test sent Email
 
 ```bash
-php monthly_report
+php monthly_mail.php
 ```
 
 * Config cron
@@ -935,7 +986,7 @@ crontab -e
 * Insert: Crone sent an email at 8:00 AM on the 1st of the month.
 
 ```bash
-0 8 1 * * php /var/www/html/cups-report/monthly_report.php
+0 8 1 * * php /var/www/html/cups-report/monthly_mail.php
 ```
 
 # Author
