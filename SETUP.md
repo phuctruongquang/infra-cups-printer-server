@@ -724,8 +724,7 @@ composer require phpmailer/phpmailer
 ```bash
 ls -l /var/www/html/cups-report
 ```
-
-Image
+<img src="docs/images/16.png" width="900">
 
 * Config SMTP Microsoft 365
 
