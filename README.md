@@ -1,12 +1,12 @@
 # Centralized Printing Management System
-#### Appendix 1: Project Overview
-#### Appendix 2: System Architecture
-#### Appendix 3: Printing System
-#### Appendix 4: Printing Workflow
-#### Appendix 5: Printer executes the job
-#### Appendix 6:  Web Management Interface
-#### Appendix 7:  Automated Email Reporting
-#### Appendix 8:  Technology Stack
+#### 1. Project Overview
+#### 2. System Architecture
+#### 3. System Components
+#### 4: Printing Workflow
+#### 5: Printer executes the job
+#### 6: Web Management Interface
+#### 7: Automated Email Reporting
+#### 8: Technology Stack
 
 ---
 
