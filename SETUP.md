@@ -1,4 +1,12 @@
 # System Setup Guide
+#### 1. Install Ubuntu Server
+#### 2. Update & Install Packages
+#### 3. Config CUPS
+#### 4: Log Rotation Configuration
+#### 5: Create Dashboard Directory
+#### 6: Setup Cron Jobs
+#### 7: Add Printer
+#### 8: More Options (Config email report monthly)
 
 ---
 
@@ -18,11 +26,11 @@ Recommended configuration:
 * The "mailutils" package is an optional add-on that allows you to configure email sending.
 
 ```bash
-apt update
+sudo apt update
 
-timedatectl set-timezone Asia/Ho_Chi_Minh
+sudo timedatectl set-timezone Asia/Ho_Chi_Minh
 
-apt install -y \
+sudo apt install -y \
 apache2 \
 php \
 php-cli \
@@ -53,12 +61,14 @@ sudo systemctl enable cups
 # 3. Config CUPS
 
 ```bash
-nano /etc/cups/cupsd.conf
+sudo nano /etc/cups/cupsd.conf
 ```
+
+* Delete all code and inser config new:
 
 <img src="docs/images/4-EditCUPS.png" width="900">
 
-Code:
+* Code:
 ```bash
 LogLevel warn
 Port 631
@@ -168,7 +178,7 @@ sudo usermod -aG adm www-data
 
 * Insert Code To parser:
 ```bash
-nano parser.php
+sudo nano parser.php
 ```
 
 * Code:
@@ -725,9 +735,10 @@ socket://IP-Printer
 <img src="docs/images/10-AddPrinter.png" width="900">
 
 * Insert Informations:
+
 <img src="docs/images/11-AddPrinter.png" width="900">
 
-* Select Driver Fit:
+* Select Fit Driver:
 
 <img src="docs/images/12-AddDriver.png" width="900">
 
@@ -737,12 +748,13 @@ socket://IP-Printer
 
 * Check Log:
 ```bash
-tail -f /var/log/cups/access_log
+sudo tail -f /var/log/cups/access_log
 ```
 
 <img src="docs/images/14-CheckLog.png" width="900">
 
 * Access Web Report Check:
+
 ```bash
 http://IP/cups-report/
 ```
@@ -751,11 +763,12 @@ http://IP/cups-report/
 
 ---
 
-# 7. More Options (Config email report monthly)
+# 8. More Options (Config email report monthly)
 
 * Install Composer using PHPMailer:
+
 ```bash
-apt install -y composer
+sudo apt install -y composer
 ```
 
 * cd to project:
@@ -775,6 +788,7 @@ composer require phpmailer/phpmailer
 ```bash
 ls -l /var/www/html/cups-report
 ```
+
 <img src="docs/images/16-CreateFile.png" width="900">
 
 * Config SMTP Microsoft 365
@@ -784,6 +798,7 @@ cd /var/www/html/cups-report/
 touch monthly_mail.php
 nano monthly_mail.php
 ```
+
 * Insert Code:
 
 ```bash
