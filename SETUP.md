@@ -64,7 +64,7 @@ sudo systemctl enable cups
 sudo nano /etc/cups/cupsd.conf
 ```
 
-* Delete all code and inser config new:
+* Delete all code and insert config new:
 
 <img src="docs/images/4-EditCUPS.png" width="900">
 
