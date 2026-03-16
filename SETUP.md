@@ -520,12 +520,28 @@ echo "<a href='?month=$month&search=$search&page=$prev'>Prev</a>";
 
 }
 
-for($i=1;$i<=$totalPages;$i++){
+$range = 2;
 
-$class=$i==$page?"active":"";
+for($i = 1; $i <= $totalPages; $i++) {
 
-echo "<a class='$class'
-href='?month=$month&search=$search&page=$i'>$i</a>";
+if(
+$i == 1 ||
+$i == $totalPages ||
+($i >= $page-$range && $i <= $page+$range)
+){
+
+$class = $i==$page ? "active" : "";
+
+echo "<a class='$class' href='?month=$month&search=$search&page=$i'>$i</a>";
+
+}elseif(
+$i == $page-$range-1 ||
+$i == $page+$range+1
+){
+
+echo "...";
+
+}
 
 }
 
@@ -570,12 +586,30 @@ echo "<a href='?month=$month&search=$search&page=$page&user_page=$prev'>Prev</a>
 
 }
 
+$range = 2;
+
 for($i=1;$i<=$totalUserPages;$i++){
+
+if(
+$i==1 ||
+$i==$totalUserPages ||
+($i >= $userPage-$range && $i <= $userPage+$range)
+){
 
 $class=$i==$userPage?"active":"";
 
 echo "<a class='$class'
 href='?month=$month&search=$search&page=$page&user_page=$i'>$i</a>";
+
+}
+elseif(
+$i==$userPage-$range-1 ||
+$i==$userPage+$range+1
+){
+
+echo "<span>...</span>";
+
+}
 
 }
 
